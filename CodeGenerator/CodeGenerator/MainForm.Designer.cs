@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelRight = new System.Windows.Forms.Panel();
-            this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
             this.groupBoxDataBase = new System.Windows.Forms.GroupBox();
             this.DB_connector_button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,7 +67,6 @@
             this.Right_listBox = new System.Windows.Forms.ListBox();
             this.Left_listBox = new System.Windows.Forms.ListBox();
             this.panelRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.groupBoxDataBase.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.others_groupBox.SuspendLayout();
@@ -77,7 +75,7 @@
             // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.fastColoredTextBox1);
+            this.panelRight.Controls.Add(this.textEditorControl1);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRight.Location = new System.Drawing.Point(334, 0);
@@ -85,38 +83,23 @@
             this.panelRight.Size = new System.Drawing.Size(466, 592);
             this.panelRight.TabIndex = 1;
             // 
-            // fastColoredTextBox1
+            // textEditorControl1
             // 
-            this.fastColoredTextBox1.AutoCompleteBracketsList = new char[] {
-        '(',
-        ')',
-        '{',
-        '}',
-        '[',
-        ']',
-        '\"',
-        '\"',
-        '\'',
-        '\''};
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(179, 14);
-            this.fastColoredTextBox1.BackBrush = null;
-            this.fastColoredTextBox1.CharHeight = 14;
-            this.fastColoredTextBox1.CharWidth = 8;
-            this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.fastColoredTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.fastColoredTextBox1.IsReplaceMode = false;
-            this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.fastColoredTextBox1.Name = "fastColoredTextBox1";
-            this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
-            this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
-            this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
-            this.fastColoredTextBox1.Size = new System.Drawing.Size(466, 592);
-            this.fastColoredTextBox1.TabIndex = 0;
-            this.fastColoredTextBox1.Text = "fastColoredTextBox1";
-            this.fastColoredTextBox1.Zoom = 100;
-            this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
+            this.textEditorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textEditorControl1.AutoScroll = true;
+            this.textEditorControl1.BackColor = System.Drawing.SystemColors.Control;
+            this.textEditorControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.textEditorControl1.CreateBackupCopy = true;
+            this.textEditorControl1.Encoding = ((System.Text.Encoding)(resources.GetObject("textEditorControl1.Encoding")));
+            this.textEditorControl1.IsIconBarVisible = false;
+            this.textEditorControl1.Location = new System.Drawing.Point(6, 12);
+            this.textEditorControl1.Name = "textEditorControl1";
+            this.textEditorControl1.ShowSpaces = true;
+            this.textEditorControl1.ShowTabs = true;
+            this.textEditorControl1.ShowVRuler = true;
+            this.textEditorControl1.Size = new System.Drawing.Size(448, 568);
+            this.textEditorControl1.TabIndex = 0;
             // 
             // groupBoxDataBase
             // 
@@ -506,7 +489,6 @@
             this.Text = "CodeGenerator";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelRight.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
             this.groupBoxDataBase.ResumeLayout(false);
             this.groupBoxDataBase.PerformLayout();
             this.panelLeft.ResumeLayout(false);
@@ -555,7 +537,7 @@
         private System.Windows.Forms.Label table_prefix_label;
         private System.Windows.Forms.TextBox author_textBox;
         private System.Windows.Forms.Label author_label;
-        private FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
+        private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
     }
 }
 

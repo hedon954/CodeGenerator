@@ -22,26 +22,13 @@ namespace CodeGenerator
             InitializeComponent();
         }
 
-        
-
-        Style GreenStyle = new TextStyle(Brushes.Green, null, FontStyle.Italic);
-
-
-        private void fastColoredTextBox1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //clear style of changed range
-            e.ChangedRange.ClearStyle(GreenStyle);
-            //comment highlighting
-            e.ChangedRange.SetStyle(GreenStyle, @"//.*$", RegexOptions.Multiline);
-        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            FastColoredTextBoxNS.Range range = new FastColoredTextBoxNS.Range(fastColoredTextBox1);
-            fastColoredTextBox1.SyntaxHighlighter.CSharpSyntaxHighlight(range);
+            textEditorControl1.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
+            textEditorControl1.Encoding = System.Text.Encoding.Default;
+            textEditorControl1.Encoding = Encoding.GetEncoding("GB2312");
 
-            fastColoredTextBox1.CollapseBlock(fastColoredTextBox1.Selection.Start.iLine,
-               fastColoredTextBox1.Selection.End.iLine);
         }
 
         
