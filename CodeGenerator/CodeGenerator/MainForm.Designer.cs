@@ -324,6 +324,7 @@
             this.to_left_button.TabIndex = 4;
             this.to_left_button.Text = "<";
             this.to_left_button.UseVisualStyleBackColor = true;
+            this.to_left_button.Click += new System.EventHandler(this.to_left_button_Click);
             // 
             // to_right_button
             // 
@@ -334,6 +335,7 @@
             this.to_right_button.TabIndex = 3;
             this.to_right_button.Text = ">";
             this.to_right_button.UseVisualStyleBackColor = true;
+            this.to_right_button.Click += new System.EventHandler(this.to_right_button_Click);
             // 
             // all_to_right_button
             // 
@@ -356,6 +358,7 @@
             this.Right_listBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.Right_listBox.Size = new System.Drawing.Size(111, 157);
             this.Right_listBox.TabIndex = 1;
+            this.Right_listBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Right_listBox_MouseDoubleClick);
             // 
             // Left_listBox
             // 
@@ -367,6 +370,7 @@
             this.Left_listBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.Left_listBox.Size = new System.Drawing.Size(111, 157);
             this.Left_listBox.TabIndex = 0;
+            this.Left_listBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Left_listBox_MouseDoubleClick);
             // 
             // groupBoxDataBase
             // 
@@ -419,6 +423,7 @@
             this.DB_name_textBox.Name = "DB_name_textBox";
             this.DB_name_textBox.Size = new System.Drawing.Size(100, 23);
             this.DB_name_textBox.TabIndex = 9;
+            this.DB_name_textBox.Text = "db_test";
             // 
             // DB_name_label
             // 
@@ -440,6 +445,7 @@
             this.DB_password_textBox.PasswordChar = '*';
             this.DB_password_textBox.Size = new System.Drawing.Size(100, 23);
             this.DB_password_textBox.TabIndex = 7;
+            this.DB_password_textBox.Text = "sa";
             // 
             // DB_password_label
             // 

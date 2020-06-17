@@ -155,5 +155,103 @@ namespace CodeGenerator
             Right_listBox.Items.Clear();        //清空右表
             
         }
+
+        /// <summary>
+        /// 只将左边选中的选项移动到右边
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void to_right_button_Click(object sender, EventArgs e)
+        {
+            leftToRight();
+        }
+
+
+        /// <summary>
+        /// 只将右边选中的选项移动到左边
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void to_left_button_Click(object sender, EventArgs e)
+        {
+            rightToLeft();
+        }
+
+        private void leftToRight()
+        {
+            //遍历转移
+            foreach (string item in Left_listBox.SelectedItems)
+            {
+                listRight.Add(item);   //右边+
+                listLeft.Remove(item); //左边-
+            }
+
+            //排序
+            listRight.Sort();
+            listLeft.Sort();
+
+            //显示左边的选择框
+            Left_listBox.Items.Clear();
+            foreach (var item in listLeft)
+            {
+                Left_listBox.Items.Add(item);
+            }
+
+            //显示右边的选择框
+            Right_listBox.Items.Clear();
+            foreach (var item in listRight)
+            {
+                Right_listBox.Items.Add(item);
+            }
+        }
+
+
+        private void rightToLeft()
+        {
+            //遍历转移
+            foreach (string item in Right_listBox.SelectedItems)
+            {
+                listLeft.Add(item);   //左边+
+                listRight.Remove(item); //右边-
+            }
+
+            //排序
+            listRight.Sort();
+            listLeft.Sort();
+
+            //显示左边的选择框
+            Left_listBox.Items.Clear();
+            foreach (var item in listLeft)
+            {
+                Left_listBox.Items.Add(item);
+            }
+
+            //显示右边的选择框
+            Right_listBox.Items.Clear();
+            foreach (var item in listRight)
+            {
+                Right_listBox.Items.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// 双击转移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Left_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            leftToRight();
+        }
+
+        /// <summary>
+        /// 双击转移
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Right_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            rightToLeft();
+        }
     }
 }
