@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CCWin;
+using CodeGenerator.Template;
 using FastColoredTextBoxNS;
 using ICSharpCode.TextEditor.Document;
 
@@ -32,9 +33,9 @@ namespace CodeGenerator
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            textEditorControl1.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
-            textEditorControl1.Encoding = System.Text.Encoding.Default;
-            textEditorControl1.Encoding = Encoding.GetEncoding("GB2312");
+            preview_textEditorControl.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
+            preview_textEditorControl.Encoding = System.Text.Encoding.Default;
+            preview_textEditorControl.Encoding = Encoding.GetEncoding("GB2312");
 
         }
 
@@ -252,6 +253,103 @@ namespace CodeGenerator
         private void Right_listBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             rightToLeft();
+        }
+
+        /// <summary>
+        /// 点击预览按钮  =》 设置输出路径
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void browser_button_Click(object sender, EventArgs e)
+        {
+            string pathStr = selectPath();
+            path_textBox.Text = pathStr;
+        }
+
+
+        private string selectPath()
+        {
+            //定义一个空路径
+            string path = string.Empty;
+            //实例化一个文件浏览器对话框
+            System.Windows.Forms.FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog();
+            //选择路径
+            if(fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = fbd.SelectedPath;
+            }
+
+            return path;
+        }
+
+        /// <summary>
+        /// 预览即将要生成的 Model 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void view_model_button_Click(object sender, EventArgs e)
+        {
+            //1. 判断右边是否有表
+            if (Right_listBox.Items.Count <= 0)
+            {
+                MessageBox.Show("请选择操作表！");
+                return;
+            }
+
+            //2. 预览
+            if (Right_listBox.SelectedItems.Count <= 0)
+            {
+                //如果没有选中的，则默认预览第一个
+                showPreview(Right_listBox.Items[0].ToString());
+            }
+            else
+            {
+                //如果有多个选中的，则默认预览选中中的第一个
+                showPreview(Right_listBox.SelectedItems[0].ToString());
+            }
+        }
+
+        
+
+
+        /// <summary>
+        /// 预览
+        /// </summary>
+        /// <param name="tableName"></param>
+        private void showPreview(string tableName)
+        {
+            
+            //2. 获取表名
+            //tableName = Right_listBox.Items[0].ToString();
+
+            //3. 获取“其他项”里面的信息
+
+            //3.1 获取命名空间
+            string ns = namespace_textBox.Text.Trim();  //命名空间
+            //3.1.1 判断“命名空间是否不为空”
+            if (string.IsNullOrEmpty(ns))
+            {
+                MessageBox.Show("请输入命名空间！");
+                return;
+            }
+
+            //3.2 获取表前缀
+            string tablePrefix = table_prefix_textBox.Text.Trim();
+            //3.2.1 去掉前缀
+            string className = tableName.Replace(tablePrefix, "");
+            //3.2.2 将类名第一个字母进行大写
+            className = className.Substring(0, 1).ToUpper() + className.Substring(1);
+
+            //3.3 获取作者信息
+            string author = author_textBox.Text.Trim();
+
+
+            //4. 获取连接字符串
+            string connStr = getConnstr();
+
+
+            //5. 获取 Model 模板代码
+            preview_textEditorControl.Text = ModelTemplate.GetModelTemplate(ns, tableName, author, className, connStr);
         }
     }
 }

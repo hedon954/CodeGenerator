@@ -34,7 +34,7 @@
             this.view_model_button = new System.Windows.Forms.Button();
             this.view_dal_button = new System.Windows.Forms.Button();
             this.generate_button = new System.Windows.Forms.Button();
-            this.textEditorControl1 = new ICSharpCode.TextEditor.TextEditorControl();
+            this.preview_textEditorControl = new ICSharpCode.TextEditor.TextEditorControl();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.copyright_label = new System.Windows.Forms.Label();
             this.others_groupBox = new System.Windows.Forms.GroupBox();
@@ -78,7 +78,7 @@
             // panelRight
             // 
             this.panelRight.Controls.Add(this.flowLayoutPanel1);
-            this.panelRight.Controls.Add(this.textEditorControl1);
+            this.panelRight.Controls.Add(this.preview_textEditorControl);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRight.Location = new System.Drawing.Point(334, 0);
@@ -109,6 +109,7 @@
             this.view_model_button.TabIndex = 4;
             this.view_model_button.Text = "预览 Model";
             this.view_model_button.UseVisualStyleBackColor = true;
+            this.view_model_button.Click += new System.EventHandler(this.view_model_button_Click);
             // 
             // view_dal_button
             // 
@@ -132,25 +133,25 @@
             this.generate_button.Text = "批量生成";
             this.generate_button.UseVisualStyleBackColor = true;
             // 
-            // textEditorControl1
+            // preview_textEditorControl
             // 
-            this.textEditorControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.preview_textEditorControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEditorControl1.AutoScroll = true;
-            this.textEditorControl1.BackColor = System.Drawing.SystemColors.Control;
-            this.textEditorControl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.textEditorControl1.CreateBackupCopy = true;
-            this.textEditorControl1.Encoding = ((System.Text.Encoding)(resources.GetObject("textEditorControl1.Encoding")));
-            this.textEditorControl1.IsIconBarVisible = false;
-            this.textEditorControl1.Location = new System.Drawing.Point(0, 52);
-            this.textEditorControl1.Name = "textEditorControl1";
-            this.textEditorControl1.ShowEOLMarkers = true;
-            this.textEditorControl1.ShowSpaces = true;
-            this.textEditorControl1.ShowTabs = true;
-            this.textEditorControl1.ShowVRuler = true;
-            this.textEditorControl1.Size = new System.Drawing.Size(484, 477);
-            this.textEditorControl1.TabIndex = 0;
+            this.preview_textEditorControl.AutoScroll = true;
+            this.preview_textEditorControl.BackColor = System.Drawing.SystemColors.Control;
+            this.preview_textEditorControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.preview_textEditorControl.CreateBackupCopy = true;
+            this.preview_textEditorControl.Encoding = ((System.Text.Encoding)(resources.GetObject("preview_textEditorControl.Encoding")));
+            this.preview_textEditorControl.IsIconBarVisible = false;
+            this.preview_textEditorControl.Location = new System.Drawing.Point(0, 52);
+            this.preview_textEditorControl.Name = "preview_textEditorControl";
+            this.preview_textEditorControl.ShowEOLMarkers = true;
+            this.preview_textEditorControl.ShowSpaces = true;
+            this.preview_textEditorControl.ShowTabs = true;
+            this.preview_textEditorControl.ShowVRuler = true;
+            this.preview_textEditorControl.Size = new System.Drawing.Size(484, 477);
+            this.preview_textEditorControl.TabIndex = 0;
             // 
             // panelLeft
             // 
@@ -206,6 +207,7 @@
             this.browser_button.TabIndex = 10;
             this.browser_button.Text = "浏览";
             this.browser_button.UseVisualStyleBackColor = true;
+            this.browser_button.Click += new System.EventHandler(this.browser_button_Click);
             // 
             // path_textBox
             // 
@@ -214,6 +216,7 @@
             this.path_textBox.Name = "path_textBox";
             this.path_textBox.Size = new System.Drawing.Size(177, 23);
             this.path_textBox.TabIndex = 9;
+            this.path_textBox.Text = "\\\\Mac\\Home\\Desktop";
             // 
             // path_label
             // 
@@ -577,7 +580,7 @@
         private System.Windows.Forms.Label table_prefix_label;
         private System.Windows.Forms.TextBox author_textBox;
         private System.Windows.Forms.Label author_label;
-        private ICSharpCode.TextEditor.TextEditorControl textEditorControl1;
+        private ICSharpCode.TextEditor.TextEditorControl preview_textEditorControl;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
