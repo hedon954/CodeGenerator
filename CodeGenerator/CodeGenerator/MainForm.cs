@@ -292,7 +292,7 @@ namespace CodeGenerator
             //1. 判断右边是否有表
             if (Right_listBox.Items.Count <= 0)
             {
-                MessageBox.Show("请选择操作表！");
+                MessageBox.Show("请选择要生成的表！");
                 return;
             }
 
@@ -300,12 +300,12 @@ namespace CodeGenerator
             if (Right_listBox.SelectedItems.Count <= 0)
             {
                 //如果没有选中的，则默认预览第一个
-                showPreview(Right_listBox.Items[0].ToString());
+                showModelPreview(Right_listBox.Items[0].ToString());
             }
             else
             {
                 //如果有多个选中的，则默认预览选中中的第一个
-                showPreview(Right_listBox.SelectedItems[0].ToString());
+                showModelPreview(Right_listBox.SelectedItems[0].ToString());
             }
         }
 
@@ -313,10 +313,10 @@ namespace CodeGenerator
 
 
         /// <summary>
-        /// 预览
+        /// 预览 Model
         /// </summary>
         /// <param name="tableName"></param>
-        private void showPreview(string tableName)
+        private void showModelPreview(string tableName)
         {
             
             //2. 获取表名
@@ -342,14 +342,37 @@ namespace CodeGenerator
 
             //3.3 获取作者信息
             string author = author_textBox.Text.Trim();
-
-
             //4. 获取连接字符串
             string connStr = getConnstr();
-
-
             //5. 获取 Model 模板代码
             preview_textEditorControl.Text = ModelTemplate.GetModelTemplate(ns, tableName, author, className, connStr);
+        }
+
+        /// <summary>
+        /// 点击“预览 DAL”按钮 =》 预览 DAL
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void view_dal_button_Click(object sender, EventArgs e)
+        {
+            //1. 判断右边选择框中有没有表
+            if(Right_listBox.Items.Count <= 0)
+            {
+                MessageBox.Show("请选择要生成的表！");
+                return;
+            }
+
+            //2. 预览
+            showDALPreview();
+
+        }
+
+        /// <summary>
+        /// 预览DAL
+        /// </summary>
+        private void showDALPreview()
+        {
+            throw new NotImplementedException();
         }
     }
 }

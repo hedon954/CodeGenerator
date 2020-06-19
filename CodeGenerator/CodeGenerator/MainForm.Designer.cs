@@ -83,7 +83,7 @@
             this.panelRight.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelRight.Location = new System.Drawing.Point(334, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(484, 529);
+            this.panelRight.Size = new System.Drawing.Size(557, 533);
             this.panelRight.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -96,7 +96,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(484, 48);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(557, 48);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // view_model_button
@@ -121,6 +121,7 @@
             this.view_dal_button.TabIndex = 5;
             this.view_dal_button.Text = "预览 DAL";
             this.view_dal_button.UseVisualStyleBackColor = true;
+            this.view_dal_button.Click += new System.EventHandler(this.view_dal_button_Click);
             // 
             // generate_button
             // 
@@ -150,7 +151,7 @@
             this.preview_textEditorControl.ShowSpaces = true;
             this.preview_textEditorControl.ShowTabs = true;
             this.preview_textEditorControl.ShowVRuler = true;
-            this.preview_textEditorControl.Size = new System.Drawing.Size(484, 477);
+            this.preview_textEditorControl.Size = new System.Drawing.Size(557, 481);
             this.preview_textEditorControl.TabIndex = 0;
             // 
             // panelLeft
@@ -164,7 +165,7 @@
             this.panelLeft.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(334, 529);
+            this.panelLeft.Size = new System.Drawing.Size(334, 533);
             this.panelLeft.TabIndex = 0;
             // 
             // copyright_label
@@ -172,7 +173,7 @@
             this.copyright_label.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.copyright_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.copyright_label.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.copyright_label.Location = new System.Drawing.Point(0, 504);
+            this.copyright_label.Location = new System.Drawing.Point(0, 508);
             this.copyright_label.Name = "copyright_label";
             this.copyright_label.Size = new System.Drawing.Size(330, 21);
             this.copyright_label.TabIndex = 3;
@@ -524,7 +525,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 529);
+            this.ClientSize = new System.Drawing.Size(891, 533);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);
             this.Name = "MainForm";

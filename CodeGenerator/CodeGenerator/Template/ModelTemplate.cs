@@ -22,7 +22,7 @@ namespace CodeGenerator.Template
         /// <param name="author">作者</param>
         /// <param name="className">类名</param>
         /// <param name="connStr">数据库连接字符串</param>
-        /// <returns></returns>
+        /// <returns>Model 模板代码</returns>
         public static string GetModelTemplate(string ns,string tableName,string author,string className,string connStr)
         {
             #region 生成 Model 的模板代码
