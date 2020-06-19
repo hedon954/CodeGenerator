@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelRight = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.preview_textEditorControl = new ICSharpCode.TextEditor.TextEditorControl();
             this.view_model_button = new System.Windows.Forms.Button();
             this.view_dal_button = new System.Windows.Forms.Button();
             this.generate_button = new System.Windows.Forms.Button();
-            this.preview_textEditorControl = new ICSharpCode.TextEditor.TextEditorControl();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.preview_groupBox = new System.Windows.Forms.GroupBox();
             this.copyright_label = new System.Windows.Forms.Label();
             this.others_groupBox = new System.Windows.Forms.GroupBox();
             this.browser_button = new System.Windows.Forms.Button();
@@ -68,8 +69,9 @@
             this.DB_type_textBox = new System.Windows.Forms.TextBox();
             this.DB_type_label = new System.Windows.Forms.Label();
             this.panelRight.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panelLeft.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.preview_groupBox.SuspendLayout();
             this.others_groupBox.SuspendLayout();
             this.DB_operator_groupBox.SuspendLayout();
             this.groupBoxDataBase.SuspendLayout();
@@ -77,106 +79,128 @@
             // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.flowLayoutPanel1);
             this.panelRight.Controls.Add(this.preview_textEditorControl);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panelRight.Location = new System.Drawing.Point(334, 0);
+            this.panelRight.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.panelRight.Location = new System.Drawing.Point(342, 30);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(557, 533);
+            this.panelRight.Size = new System.Drawing.Size(526, 668);
             this.panelRight.TabIndex = 1;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Controls.Add(this.view_model_button);
-            this.flowLayoutPanel1.Controls.Add(this.view_dal_button);
-            this.flowLayoutPanel1.Controls.Add(this.generate_button);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(557, 48);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // view_model_button
-            // 
-            this.view_model_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.view_model_button.Location = new System.Drawing.Point(13, 13);
-            this.view_model_button.Margin = new System.Windows.Forms.Padding(13);
-            this.view_model_button.Name = "view_model_button";
-            this.view_model_button.Size = new System.Drawing.Size(89, 23);
-            this.view_model_button.TabIndex = 4;
-            this.view_model_button.Text = "预览 Model";
-            this.view_model_button.UseVisualStyleBackColor = true;
-            this.view_model_button.Click += new System.EventHandler(this.view_model_button_Click);
-            // 
-            // view_dal_button
-            // 
-            this.view_dal_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.view_dal_button.Location = new System.Drawing.Point(115, 13);
-            this.view_dal_button.Margin = new System.Windows.Forms.Padding(0, 13, 3, 3);
-            this.view_dal_button.Name = "view_dal_button";
-            this.view_dal_button.Size = new System.Drawing.Size(89, 23);
-            this.view_dal_button.TabIndex = 5;
-            this.view_dal_button.Text = "预览 DAL";
-            this.view_dal_button.UseVisualStyleBackColor = true;
-            this.view_dal_button.Click += new System.EventHandler(this.view_dal_button_Click);
-            // 
-            // generate_button
-            // 
-            this.generate_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.generate_button.Location = new System.Drawing.Point(267, 13);
-            this.generate_button.Margin = new System.Windows.Forms.Padding(60, 13, 13, 13);
-            this.generate_button.Name = "generate_button";
-            this.generate_button.Size = new System.Drawing.Size(186, 23);
-            this.generate_button.TabIndex = 6;
-            this.generate_button.Text = "批量生成";
-            this.generate_button.UseVisualStyleBackColor = true;
-            this.generate_button.Click += new System.EventHandler(this.generate_button_Click);
             // 
             // preview_textEditorControl
             // 
+            this.preview_textEditorControl.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonMenu;
             this.preview_textEditorControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.preview_textEditorControl.AutoScroll = true;
-            this.preview_textEditorControl.BackColor = System.Drawing.SystemColors.Control;
-            this.preview_textEditorControl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.preview_textEditorControl.BackColor = System.Drawing.Color.DimGray;
             this.preview_textEditorControl.CreateBackupCopy = true;
             this.preview_textEditorControl.Encoding = ((System.Text.Encoding)(resources.GetObject("preview_textEditorControl.Encoding")));
             this.preview_textEditorControl.IsIconBarVisible = false;
-            this.preview_textEditorControl.Location = new System.Drawing.Point(0, 52);
+            this.preview_textEditorControl.Location = new System.Drawing.Point(3, 3);
             this.preview_textEditorControl.Name = "preview_textEditorControl";
             this.preview_textEditorControl.ShowEOLMarkers = true;
             this.preview_textEditorControl.ShowSpaces = true;
             this.preview_textEditorControl.ShowTabs = true;
             this.preview_textEditorControl.ShowVRuler = true;
-            this.preview_textEditorControl.Size = new System.Drawing.Size(557, 481);
+            this.preview_textEditorControl.Size = new System.Drawing.Size(520, 662);
             this.preview_textEditorControl.TabIndex = 0;
+            // 
+            // view_model_button
+            // 
+            this.view_model_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.view_model_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.view_model_button.FlatAppearance.BorderSize = 0;
+            this.view_model_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_model_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.view_model_button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.view_model_button.Location = new System.Drawing.Point(13, 24);
+            this.view_model_button.Margin = new System.Windows.Forms.Padding(13);
+            this.view_model_button.Name = "view_model_button";
+            this.view_model_button.Size = new System.Drawing.Size(132, 23);
+            this.view_model_button.TabIndex = 4;
+            this.view_model_button.Text = "预览 Model";
+            this.view_model_button.UseVisualStyleBackColor = false;
+            this.view_model_button.Click += new System.EventHandler(this.view_model_button_Click);
+            // 
+            // view_dal_button
+            // 
+            this.view_dal_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.view_dal_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.view_dal_button.FlatAppearance.BorderSize = 0;
+            this.view_dal_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_dal_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.view_dal_button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.view_dal_button.Location = new System.Drawing.Point(164, 24);
+            this.view_dal_button.Margin = new System.Windows.Forms.Padding(0, 13, 3, 3);
+            this.view_dal_button.Name = "view_dal_button";
+            this.view_dal_button.Size = new System.Drawing.Size(132, 23);
+            this.view_dal_button.TabIndex = 5;
+            this.view_dal_button.Text = "预览 DAL";
+            this.view_dal_button.UseVisualStyleBackColor = false;
+            this.view_dal_button.Click += new System.EventHandler(this.view_dal_button_Click);
+            // 
+            // generate_button
+            // 
+            this.generate_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.generate_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.generate_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.generate_button.Location = new System.Drawing.Point(13, 23);
+            this.generate_button.Margin = new System.Windows.Forms.Padding(60, 13, 13, 13);
+            this.generate_button.Name = "generate_button";
+            this.generate_button.Size = new System.Drawing.Size(283, 23);
+            this.generate_button.TabIndex = 6;
+            this.generate_button.Text = "批量生成";
+            this.generate_button.UseVisualStyleBackColor = false;
+            this.generate_button.Click += new System.EventHandler(this.generate_button_Click);
             // 
             // panelLeft
             // 
-            this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelLeft.Controls.Add(this.groupBox1);
+            this.panelLeft.Controls.Add(this.preview_groupBox);
             this.panelLeft.Controls.Add(this.copyright_label);
             this.panelLeft.Controls.Add(this.others_groupBox);
             this.panelLeft.Controls.Add(this.DB_operator_groupBox);
             this.panelLeft.Controls.Add(this.groupBoxDataBase);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panelLeft.Location = new System.Drawing.Point(0, 0);
+            this.panelLeft.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.panelLeft.Location = new System.Drawing.Point(8, 30);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(334, 533);
+            this.panelLeft.Size = new System.Drawing.Size(334, 668);
             this.panelLeft.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.generate_button);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(12, 574);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(306, 59);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "生成";
+            // 
+            // preview_groupBox
+            // 
+            this.preview_groupBox.Controls.Add(this.view_model_button);
+            this.preview_groupBox.Controls.Add(this.view_dal_button);
+            this.preview_groupBox.ForeColor = System.Drawing.SystemColors.Control;
+            this.preview_groupBox.Location = new System.Drawing.Point(12, 506);
+            this.preview_groupBox.Name = "preview_groupBox";
+            this.preview_groupBox.Size = new System.Drawing.Size(306, 58);
+            this.preview_groupBox.TabIndex = 4;
+            this.preview_groupBox.TabStop = false;
+            this.preview_groupBox.Text = "预览";
             // 
             // copyright_label
             // 
             this.copyright_label.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.copyright_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.copyright_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.copyright_label.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.copyright_label.Location = new System.Drawing.Point(0, 508);
+            this.copyright_label.Location = new System.Drawing.Point(0, 647);
             this.copyright_label.Name = "copyright_label";
-            this.copyright_label.Size = new System.Drawing.Size(330, 21);
+            this.copyright_label.Size = new System.Drawing.Size(334, 21);
             this.copyright_label.TabIndex = 3;
             this.copyright_label.Text = "Copyright © 2020     Hedon.   All Rights Reserved";
             this.copyright_label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -192,7 +216,8 @@
             this.others_groupBox.Controls.Add(this.table_prefix_label);
             this.others_groupBox.Controls.Add(this.author_textBox);
             this.others_groupBox.Controls.Add(this.author_label);
-            this.others_groupBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.others_groupBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.others_groupBox.ForeColor = System.Drawing.SystemColors.Control;
             this.others_groupBox.Location = new System.Drawing.Point(12, 373);
             this.others_groupBox.Name = "others_groupBox";
             this.others_groupBox.Size = new System.Drawing.Size(306, 124);
@@ -202,18 +227,24 @@
             // 
             // browser_button
             // 
-            this.browser_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.browser_button.Location = new System.Drawing.Point(251, 85);
+            this.browser_button.BackColor = System.Drawing.Color.Transparent;
+            this.browser_button.BackgroundImage = global::CodeGenerator.Properties.Resources.compare;
+            this.browser_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.browser_button.FlatAppearance.BorderSize = 0;
+            this.browser_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.browser_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.browser_button.Location = new System.Drawing.Point(251, 80);
             this.browser_button.Name = "browser_button";
-            this.browser_button.Size = new System.Drawing.Size(45, 23);
+            this.browser_button.Size = new System.Drawing.Size(45, 33);
             this.browser_button.TabIndex = 10;
-            this.browser_button.Text = "浏览";
-            this.browser_button.UseVisualStyleBackColor = true;
+            this.browser_button.UseVisualStyleBackColor = false;
             this.browser_button.Click += new System.EventHandler(this.browser_button_Click);
             // 
             // path_textBox
             // 
+            this.path_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.path_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.path_textBox.ForeColor = System.Drawing.Color.White;
             this.path_textBox.Location = new System.Drawing.Point(68, 85);
             this.path_textBox.Name = "path_textBox";
             this.path_textBox.Size = new System.Drawing.Size(177, 23);
@@ -223,7 +254,7 @@
             // path_label
             // 
             this.path_label.AutoSize = true;
-            this.path_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.path_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.path_label.Location = new System.Drawing.Point(10, 88);
             this.path_label.Name = "path_label";
             this.path_label.Size = new System.Drawing.Size(56, 17);
@@ -233,7 +264,9 @@
             // 
             // namespace_textBox
             // 
+            this.namespace_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.namespace_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.namespace_textBox.ForeColor = System.Drawing.Color.White;
             this.namespace_textBox.Location = new System.Drawing.Point(68, 55);
             this.namespace_textBox.Name = "namespace_textBox";
             this.namespace_textBox.Size = new System.Drawing.Size(228, 23);
@@ -243,7 +276,7 @@
             // namespace_label
             // 
             this.namespace_label.AutoSize = true;
-            this.namespace_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.namespace_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.namespace_label.Location = new System.Drawing.Point(10, 59);
             this.namespace_label.Name = "namespace_label";
             this.namespace_label.Size = new System.Drawing.Size(56, 17);
@@ -253,7 +286,9 @@
             // 
             // table_prefix_textBox
             // 
+            this.table_prefix_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.table_prefix_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.table_prefix_textBox.ForeColor = System.Drawing.Color.White;
             this.table_prefix_textBox.Location = new System.Drawing.Point(234, 23);
             this.table_prefix_textBox.Name = "table_prefix_textBox";
             this.table_prefix_textBox.Size = new System.Drawing.Size(62, 23);
@@ -263,7 +298,7 @@
             // table_prefix_label
             // 
             this.table_prefix_label.AutoSize = true;
-            this.table_prefix_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.table_prefix_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.table_prefix_label.Location = new System.Drawing.Point(190, 27);
             this.table_prefix_label.Name = "table_prefix_label";
             this.table_prefix_label.Size = new System.Drawing.Size(44, 17);
@@ -273,7 +308,9 @@
             // 
             // author_textBox
             // 
+            this.author_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.author_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.author_textBox.ForeColor = System.Drawing.Color.White;
             this.author_textBox.Location = new System.Drawing.Point(68, 23);
             this.author_textBox.Name = "author_textBox";
             this.author_textBox.Size = new System.Drawing.Size(110, 23);
@@ -283,7 +320,7 @@
             // author_label
             // 
             this.author_label.AutoSize = true;
-            this.author_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.author_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.author_label.Location = new System.Drawing.Point(10, 27);
             this.author_label.Name = "author_label";
             this.author_label.Size = new System.Drawing.Size(56, 17);
@@ -301,61 +338,76 @@
             this.DB_operator_groupBox.Controls.Add(this.all_to_right_button);
             this.DB_operator_groupBox.Controls.Add(this.Right_listBox);
             this.DB_operator_groupBox.Controls.Add(this.Left_listBox);
-            this.DB_operator_groupBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_operator_groupBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_operator_groupBox.ForeColor = System.Drawing.SystemColors.Control;
             this.DB_operator_groupBox.Location = new System.Drawing.Point(12, 165);
             this.DB_operator_groupBox.Name = "DB_operator_groupBox";
-            this.DB_operator_groupBox.Size = new System.Drawing.Size(302, 193);
+            this.DB_operator_groupBox.Size = new System.Drawing.Size(306, 193);
             this.DB_operator_groupBox.TabIndex = 1;
             this.DB_operator_groupBox.TabStop = false;
             this.DB_operator_groupBox.Text = "表操作";
             // 
             // all_to_left_button
             // 
-            this.all_to_left_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.all_to_left_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.all_to_left_button.FlatAppearance.BorderSize = 0;
+            this.all_to_left_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.all_to_left_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.all_to_left_button.Location = new System.Drawing.Point(129, 139);
             this.all_to_left_button.Name = "all_to_left_button";
             this.all_to_left_button.Size = new System.Drawing.Size(49, 29);
             this.all_to_left_button.TabIndex = 5;
             this.all_to_left_button.Text = "<<";
-            this.all_to_left_button.UseVisualStyleBackColor = true;
+            this.all_to_left_button.UseVisualStyleBackColor = false;
             this.all_to_left_button.Click += new System.EventHandler(this.all_to_left_button_Click);
             // 
             // to_left_button
             // 
-            this.to_left_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.to_left_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.to_left_button.FlatAppearance.BorderSize = 0;
+            this.to_left_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.to_left_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.to_left_button.Location = new System.Drawing.Point(129, 102);
             this.to_left_button.Name = "to_left_button";
             this.to_left_button.Size = new System.Drawing.Size(49, 29);
             this.to_left_button.TabIndex = 4;
             this.to_left_button.Text = "<";
-            this.to_left_button.UseVisualStyleBackColor = true;
+            this.to_left_button.UseVisualStyleBackColor = false;
             this.to_left_button.Click += new System.EventHandler(this.to_left_button_Click);
             // 
             // to_right_button
             // 
-            this.to_right_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.to_right_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.to_right_button.FlatAppearance.BorderSize = 0;
+            this.to_right_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.to_right_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.to_right_button.Location = new System.Drawing.Point(129, 65);
             this.to_right_button.Name = "to_right_button";
             this.to_right_button.Size = new System.Drawing.Size(49, 29);
             this.to_right_button.TabIndex = 3;
             this.to_right_button.Text = ">";
-            this.to_right_button.UseVisualStyleBackColor = true;
+            this.to_right_button.UseVisualStyleBackColor = false;
             this.to_right_button.Click += new System.EventHandler(this.to_right_button_Click);
             // 
             // all_to_right_button
             // 
-            this.all_to_right_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.all_to_right_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.all_to_right_button.FlatAppearance.BorderSize = 0;
+            this.all_to_right_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.all_to_right_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.all_to_right_button.Location = new System.Drawing.Point(129, 29);
             this.all_to_right_button.Name = "all_to_right_button";
             this.all_to_right_button.Size = new System.Drawing.Size(49, 29);
             this.all_to_right_button.TabIndex = 2;
             this.all_to_right_button.Text = ">>";
-            this.all_to_right_button.UseVisualStyleBackColor = true;
+            this.all_to_right_button.UseVisualStyleBackColor = false;
             this.all_to_right_button.Click += new System.EventHandler(this.all_to_right_button_Click);
             // 
             // Right_listBox
             // 
+            this.Right_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.Right_listBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Right_listBox.ForeColor = System.Drawing.Color.White;
             this.Right_listBox.FormattingEnabled = true;
             this.Right_listBox.ItemHeight = 17;
             this.Right_listBox.Location = new System.Drawing.Point(185, 19);
@@ -367,7 +419,9 @@
             // 
             // Left_listBox
             // 
+            this.Left_listBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.Left_listBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Left_listBox.ForeColor = System.Drawing.Color.White;
             this.Left_listBox.FormattingEnabled = true;
             this.Left_listBox.ItemHeight = 17;
             this.Left_listBox.Location = new System.Drawing.Point(12, 20);
@@ -393,29 +447,37 @@
             this.groupBoxDataBase.Controls.Add(this.DB_address_label);
             this.groupBoxDataBase.Controls.Add(this.DB_type_textBox);
             this.groupBoxDataBase.Controls.Add(this.DB_type_label);
-            this.groupBoxDataBase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBoxDataBase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBoxDataBase.ForeColor = System.Drawing.SystemColors.Control;
             this.groupBoxDataBase.Location = new System.Drawing.Point(12, 12);
             this.groupBoxDataBase.Name = "groupBoxDataBase";
-            this.groupBoxDataBase.Size = new System.Drawing.Size(302, 138);
+            this.groupBoxDataBase.Size = new System.Drawing.Size(306, 138);
             this.groupBoxDataBase.TabIndex = 0;
             this.groupBoxDataBase.TabStop = false;
             this.groupBoxDataBase.Text = "数据库";
             // 
             // DB_connector_button
             // 
-            this.DB_connector_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.DB_connector_button.Location = new System.Drawing.Point(163, 98);
+            this.DB_connector_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.DB_connector_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.DB_connector_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
+            this.DB_connector_button.FlatAppearance.BorderSize = 0;
+            this.DB_connector_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DB_connector_button.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_connector_button.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.DB_connector_button.Location = new System.Drawing.Point(164, 98);
+            this.DB_connector_button.Margin = new System.Windows.Forms.Padding(0);
             this.DB_connector_button.Name = "DB_connector_button";
-            this.DB_connector_button.Size = new System.Drawing.Size(133, 23);
+            this.DB_connector_button.Size = new System.Drawing.Size(132, 23);
             this.DB_connector_button.TabIndex = 11;
-            this.DB_connector_button.Text = "连接";
-            this.DB_connector_button.UseVisualStyleBackColor = true;
+            this.DB_connector_button.Text = "连接数据库";
+            this.DB_connector_button.UseVisualStyleBackColor = false;
             this.DB_connector_button.Click += new System.EventHandler(this.DB_connector_button_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.Location = new System.Drawing.Point(161, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 17);
@@ -423,7 +485,9 @@
             // 
             // DB_name_textBox
             // 
+            this.DB_name_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.DB_name_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_name_textBox.ForeColor = System.Drawing.Color.White;
             this.DB_name_textBox.Location = new System.Drawing.Point(54, 98);
             this.DB_name_textBox.Name = "DB_name_textBox";
             this.DB_name_textBox.Size = new System.Drawing.Size(100, 23);
@@ -433,7 +497,7 @@
             // DB_name_label
             // 
             this.DB_name_label.AutoSize = true;
-            this.DB_name_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_name_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DB_name_label.Location = new System.Drawing.Point(10, 101);
             this.DB_name_label.Name = "DB_name_label";
             this.DB_name_label.Size = new System.Drawing.Size(44, 17);
@@ -444,7 +508,9 @@
             // DB_password_textBox
             // 
             this.DB_password_textBox.AccessibleDescription = "";
+            this.DB_password_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.DB_password_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_password_textBox.ForeColor = System.Drawing.Color.White;
             this.DB_password_textBox.Location = new System.Drawing.Point(196, 65);
             this.DB_password_textBox.Name = "DB_password_textBox";
             this.DB_password_textBox.PasswordChar = '*';
@@ -455,7 +521,7 @@
             // DB_password_label
             // 
             this.DB_password_label.AutoSize = true;
-            this.DB_password_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_password_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DB_password_label.Location = new System.Drawing.Point(161, 69);
             this.DB_password_label.Name = "DB_password_label";
             this.DB_password_label.Size = new System.Drawing.Size(32, 17);
@@ -464,7 +530,9 @@
             // 
             // DB_username_textBox
             // 
+            this.DB_username_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.DB_username_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_username_textBox.ForeColor = System.Drawing.Color.White;
             this.DB_username_textBox.Location = new System.Drawing.Point(54, 65);
             this.DB_username_textBox.Name = "DB_username_textBox";
             this.DB_username_textBox.Size = new System.Drawing.Size(100, 23);
@@ -474,7 +542,7 @@
             // DB_username_label
             // 
             this.DB_username_label.AutoSize = true;
-            this.DB_username_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_username_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DB_username_label.Location = new System.Drawing.Point(10, 69);
             this.DB_username_label.Name = "DB_username_label";
             this.DB_username_label.Size = new System.Drawing.Size(44, 17);
@@ -484,7 +552,9 @@
             // 
             // DB_address_textBox
             // 
+            this.DB_address_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.DB_address_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_address_textBox.ForeColor = System.Drawing.Color.White;
             this.DB_address_textBox.Location = new System.Drawing.Point(196, 29);
             this.DB_address_textBox.Name = "DB_address_textBox";
             this.DB_address_textBox.Size = new System.Drawing.Size(100, 23);
@@ -494,7 +564,7 @@
             // DB_address_label
             // 
             this.DB_address_label.AutoSize = true;
-            this.DB_address_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_address_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DB_address_label.Location = new System.Drawing.Point(161, 33);
             this.DB_address_label.Name = "DB_address_label";
             this.DB_address_label.Size = new System.Drawing.Size(32, 17);
@@ -503,8 +573,10 @@
             // 
             // DB_type_textBox
             // 
+            this.DB_type_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(39)))), ((int)(((byte)(59)))));
             this.DB_type_textBox.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.DB_type_textBox.Location = new System.Drawing.Point(54, 29);
+            this.DB_type_textBox.ForeColor = System.Drawing.Color.White;
+            this.DB_type_textBox.Location = new System.Drawing.Point(54, 32);
             this.DB_type_textBox.Name = "DB_type_textBox";
             this.DB_type_textBox.ReadOnly = true;
             this.DB_type_textBox.Size = new System.Drawing.Size(100, 23);
@@ -514,7 +586,7 @@
             // DB_type_label
             // 
             this.DB_type_label.AutoSize = true;
-            this.DB_type_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DB_type_label.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.DB_type_label.Location = new System.Drawing.Point(10, 33);
             this.DB_type_label.Name = "DB_type_label";
             this.DB_type_label.Size = new System.Drawing.Size(32, 17);
@@ -526,15 +598,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 533);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.CaptionFont = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ClientSize = new System.Drawing.Size(876, 706);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "CodeGenerator";
+            this.TitleColor = System.Drawing.Color.White;
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelRight.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.preview_groupBox.ResumeLayout(false);
             this.others_groupBox.ResumeLayout(false);
             this.others_groupBox.PerformLayout();
             this.DB_operator_groupBox.ResumeLayout(false);
@@ -560,7 +640,6 @@
         private System.Windows.Forms.TextBox DB_type_textBox;
         private System.Windows.Forms.Label DB_type_label;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Button DB_connector_button;
         private System.Windows.Forms.GroupBox DB_operator_groupBox;
         private System.Windows.Forms.ListBox Right_listBox;
         private System.Windows.Forms.ListBox Left_listBox;
@@ -583,7 +662,9 @@
         private System.Windows.Forms.TextBox author_textBox;
         private System.Windows.Forms.Label author_label;
         private ICSharpCode.TextEditor.TextEditorControl preview_textEditorControl;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button DB_connector_button;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox preview_groupBox;
     }
 }
 

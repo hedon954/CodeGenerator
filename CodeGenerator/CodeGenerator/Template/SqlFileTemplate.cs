@@ -88,14 +88,14 @@ namespace CodeGenerator.Template
 
                     String sql = "";
                     sql += "SELECT a.name as '字段名',c.name '类型',sm.text as '默认值',a.isnullable as '是否为空', ";
-                    sql += "a.length as '长度',a.xscale as '小数位数',e.value as '字段说明'";
-                    sql += "FROM syscolumns a";
-                    sql += "left join systypes b on a.xusertype = b.xusertype";
-                    sql += "left join systypes c on a.xtype = c.xusertype";
-                    sql += "inner join sysobjects d on a.id = d.id and d.xtype = 'U'";
-                    sql += "left join syscomments sm on a.cdefault = sm.id";
-                    sql += "left join sys.extended_properties e on a.id = e.major_id and a.colid = e.minor_id and";
-                    sql += "e.name = 'MS_Description' where d.name = '" + tableName + "'";
+                    sql += "a.length as '长度',a.xscale as '小数位数',e.value as '字段说明' ";
+                    sql += "FROM syscolumns a ";
+                    sql += "left join systypes b on a.xusertype = b.xusertype ";
+                    sql += "left join systypes c on a.xtype = c.xusertype ";
+                    sql += "inner join sysobjects d on a.id = d.id and d.xtype = 'U' ";
+                    sql += "left join syscomments sm on a.cdefault = sm.id ";
+                    sql += "left join sys.extended_properties e on a.id = e.major_id and a.colid = e.minor_id and ";
+                    sql += "e.name = 'MS_Description' where d.name = '" + tableName + "' ";
 
                     SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
                     //查询数据
@@ -129,9 +129,9 @@ namespace CodeGenerator.Template
                         sb.Append("      <td> " + dataRow["类型"] + " &nbsp; </td> \r\n");
                         sb.Append("      <td> " + dataRow["长度"] + " &nbsp; </td> \r\n");
                         sb.Append("      <td> " + dataRow["小数位数"] + " &nbsp; </td> \r\n");
-                        sb.Append("      <td> " + dataRow["是否为空"].ToString() == "0" ? "否" : "是" + "</td>\r\n");
+                        sb.Append("      <td> " + (dataRow["是否为空"].ToString() == "0" ? "否" : "是") + " &nbsp; </td>\r\n");
                         sb.Append("      <td> " + dataRow["默认值"] + "&nbsp; </td> \r\n");
-                        sb.Append("      <td> " + dataRow["表说明"] + " &nbsp; </td> \r\n");
+                        sb.Append("      <td> " + dataRow["字段说明"] + " &nbsp; </td> \r\n");
                         sb.Append("     </tr> \r\n");
                     }
                     sb.Append("    </tbody>\r\n");

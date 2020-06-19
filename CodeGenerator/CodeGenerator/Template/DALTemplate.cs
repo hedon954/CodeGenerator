@@ -303,28 +303,28 @@ namespace CodeGenerator.Template
             #endregion
 
             #region 读取一个元组(实体对象)
-            sb.Append("            /// <summary>}\r\n");
-            sb.Append("            /// 得到一个对象实体}\r\n");
-            sb.Append("            /// </summary>}\r\n");
-            sb.Append("            public "+ns+".Model."+className+" GetModel(int id)}\r\n");
-            sb.Append("            {}\r\n");
-            sb.Append("                StringBuilder strSql = new StringBuilder();}\r\n");
-            sb.Append("                strSql.Append(\"select * from ["+tableName+"] \");}\r\n");
-            sb.Append("                strSql.Append(\" where id=@id \");}\r\n");
-            sb.Append("                MSSQLHelper h = new MSSQLHelper();}\r\n");
-            sb.Append("                h.CreateCommand(strSql.ToString());}\r\n");
-            sb.Append("                h.AddParameter(\"@id\", id);}\r\n");
-            sb.Append("                "+ns+".Model."+className+" model = null;}\r\n");
-            sb.Append("                using (IDataReader dataReader = h.ExecuteReader())}\r\n");
-            sb.Append("                {}\r\n");
-            sb.Append("                    if (dataReader.Read())}\r\n");
-            sb.Append("                    {}\r\n");
-            sb.Append("                        model = ReaderBind(dataReader);}\r\n");
-            sb.Append("                    }}\r\n");
-            sb.Append("                    h.CloseConn();}\r\n");
-            sb.Append("                }}\r\n");
-            sb.Append("                return model;}\r\n");
-            sb.Append("            }}\r\n\r\n");
+            sb.Append("            /// <summary>\r\n");
+            sb.Append("            /// 得到一个对象实体\r\n");
+            sb.Append("            /// </summary>\r\n");
+            sb.Append("            public "+ns+".Model."+className+" GetModel(int id)\r\n");
+            sb.Append("            {\r\n");
+            sb.Append("                StringBuilder strSql = new StringBuilder();\r\n");
+            sb.Append("                strSql.Append(\"select * from ["+tableName+"] \");\r\n");
+            sb.Append("                strSql.Append(\" where id=@id \");\r\n");
+            sb.Append("                MSSQLHelper h = new MSSQLHelper();\r\n");
+            sb.Append("                h.CreateCommand(strSql.ToString());\r\n");
+            sb.Append("                h.AddParameter(\"@id\", id);\r\n");
+            sb.Append("                "+ns+".Model."+className+" model = null;\r\n");
+            sb.Append("                using (IDataReader dataReader = h.ExecuteReader())\r\n");
+            sb.Append("                {\r\n");
+            sb.Append("                    if (dataReader.Read())\r\n");
+            sb.Append("                    {\r\n");
+            sb.Append("                        model = ReaderBind(dataReader);\r\n");
+            sb.Append("                    }\r\n");
+            sb.Append("                    h.CloseConn();\r\n");
+            sb.Append("                }\r\n");
+            sb.Append("                return model;\r\n");
+            sb.Append("            }\r\n\r\n");
             #endregion
 
             #region 根据条件得到一个元组（对象实体）

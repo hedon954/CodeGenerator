@@ -44,7 +44,7 @@ namespace CodeGenerator
 "ntext","nvarchar","smalldatetime","smallint","text","bigint","binary","char","nchar","numeric",
 "real","smallmoney", "sql_variant","timestamp","tinyint","uniqueidentifier","varbinary"};
 
-            string[] DotNetTypes = new string[] {"int?", "string","bool" ,"DateTime?","Decimal","Double","Byte[]","Single",
+            string[] DotNetTypes = new string[] {"int", "string","bool" ,"DateTime?","Decimal","Double","Byte[]","Single",
 "string","string","DateTime","Int16","string","Int64","Byte[]","string","string","Decimal",
 "Single","Single", "Object","Byte[]","Byte","Guid","Byte[]"};
 

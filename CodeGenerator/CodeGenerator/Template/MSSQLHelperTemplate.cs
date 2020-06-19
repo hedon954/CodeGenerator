@@ -38,7 +38,7 @@ namespace CodeGenerator.Template
             sb.Append("        private SqlConnection conn = null;\r\n");
             sb.Append("        private SqlCommand cmd = null;\r\n");
             sb.Append("        private SqlDataReader sdr = null;\r\n");
-            sb.Append("        public MSSQLHelpfer()\r\n");
+            sb.Append("        public MSSQLHelper()\r\n");
             sb.Append("        {\r\n");
             sb.Append("            //string connStr = System.Configuration.ConfigurationManager.ConnectionStrings[\"connStr\"].ToString();\r\n");
             sb.Append("            //使用上面方法时请在Web.config的<configuration>中加上以下注释节点\r\n");

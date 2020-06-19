@@ -20,7 +20,7 @@ using ICSharpCode.TextEditor.Document;
 namespace CodeGenerator
 {
    
-    public partial class MainForm : Form
+    public partial class MainForm : Skin_Metro
     {
         // 定义两个变量，用来临时存储左右两边的表选择框
         List<string> listLeft = new List<string>();
@@ -33,13 +33,46 @@ namespace CodeGenerator
         }
 
 
+        /// <summary>
+        /// 软件启动时
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
             preview_textEditorControl.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("C#");
             preview_textEditorControl.Encoding = System.Text.Encoding.Default;
             preview_textEditorControl.Encoding = Encoding.GetEncoding("GB2312");
 
+            //获取之前选择的路径
+            path_textBox.Text = Properties.Settings.Default.generateUrl;
+
+            
         }
+
+        /// <summary>
+        /// 软件关闭时记录一些数据
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //存放生成路径
+            Properties.Settings.Default.generateUrl = path_textBox.Text.Trim();
+            Properties.Settings.Default.Save();
+        }
+
+        /// <summary>
+        /// 软件启动时，设置焦点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            //启动的时候，重点提示要处理的数据库
+            DB_name_textBox.Focus();
+        }
+
 
         /// <summary>
         /// 点击“连接”按钮  =》 连接数据库
@@ -60,7 +93,7 @@ namespace CodeGenerator
                 //2. 拼接生成数据库的连接字符串
                 string connstr = getConnstr();
                 //3. 连接数据库
-                sqlConnection= new SqlConnection(connstr);
+                sqlConnection = new SqlConnection(connstr);
                 sqlConnection.Open();     //打开数据库
                 //3. 查询所有的表
                 string sql = "SELECT name FROM sysobjects WHERE xtype = 'U' AND OBJECTPROPERTY (id, 'IsMSShipped') = 0 AND name !='sysdiagrams' order by name";     //定义 sql语句 =》 查询数据库中所有表名
@@ -71,7 +104,7 @@ namespace CodeGenerator
                 {
                     listLeft.Add(sqlDataReader["name"].ToString());
                 }
-               
+
                 //4. 将查询到的表填充到左边的表选择框中
                 foreach (var item in listLeft.ToArray())
                 {
@@ -653,6 +686,14 @@ namespace CodeGenerator
             sw.Close();
             sw.Dispose();
         }
+
+
+
+
+
+
         #endregion
+
+        
     }
 }
