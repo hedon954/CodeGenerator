@@ -1,5 +1,4 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -32,8 +31,8 @@ namespace CodeGenerator.Template
             /*
              * 连接数据库，查询出数据库表的详细信息
              */
-            SqlConnection sqlConnection = null;
-            DataTable dataTable = null;
+            SqlConnection sqlConnection = new SqlConnection(connStr);
+            DataTable dataTable = new DataTable();
             try
             {
                 //打开数据库
@@ -64,11 +63,6 @@ namespace CodeGenerator.Template
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                //关闭数据库
-                sqlConnection.Close();
             }
             #endregion
 
@@ -516,6 +510,8 @@ namespace CodeGenerator.Template
             sb.Append("    }\r\n\r\n");
             #endregion
 
+            //关闭数据库
+            sqlConnection.Close();
             return sb.ToString();
             #endregion
         }

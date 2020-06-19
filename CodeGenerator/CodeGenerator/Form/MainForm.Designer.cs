@@ -55,9 +55,7 @@
             this.all_to_right_button = new System.Windows.Forms.Button();
             this.Right_listBox = new System.Windows.Forms.ListBox();
             this.Left_listBox = new System.Windows.Forms.ListBox();
-            this.groupBoxDataBase = new System.Windows.Forms.GroupBox();
             this.DB_connector_button = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.DB_name_textBox = new System.Windows.Forms.TextBox();
             this.DB_name_label = new System.Windows.Forms.Label();
             this.DB_password_textBox = new System.Windows.Forms.TextBox();
@@ -68,6 +66,8 @@
             this.DB_address_label = new System.Windows.Forms.Label();
             this.DB_type_textBox = new System.Windows.Forms.TextBox();
             this.DB_type_label = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBoxDataBase = new System.Windows.Forms.GroupBox();
             this.panelRight.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -431,31 +431,6 @@
             this.Left_listBox.TabIndex = 0;
             this.Left_listBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Left_listBox_MouseDoubleClick);
             // 
-            // groupBoxDataBase
-            // 
-            this.groupBoxDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxDataBase.Controls.Add(this.DB_connector_button);
-            this.groupBoxDataBase.Controls.Add(this.label3);
-            this.groupBoxDataBase.Controls.Add(this.DB_name_textBox);
-            this.groupBoxDataBase.Controls.Add(this.DB_name_label);
-            this.groupBoxDataBase.Controls.Add(this.DB_password_textBox);
-            this.groupBoxDataBase.Controls.Add(this.DB_password_label);
-            this.groupBoxDataBase.Controls.Add(this.DB_username_textBox);
-            this.groupBoxDataBase.Controls.Add(this.DB_username_label);
-            this.groupBoxDataBase.Controls.Add(this.DB_address_textBox);
-            this.groupBoxDataBase.Controls.Add(this.DB_address_label);
-            this.groupBoxDataBase.Controls.Add(this.DB_type_textBox);
-            this.groupBoxDataBase.Controls.Add(this.DB_type_label);
-            this.groupBoxDataBase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBoxDataBase.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBoxDataBase.Location = new System.Drawing.Point(12, 12);
-            this.groupBoxDataBase.Name = "groupBoxDataBase";
-            this.groupBoxDataBase.Size = new System.Drawing.Size(306, 138);
-            this.groupBoxDataBase.TabIndex = 0;
-            this.groupBoxDataBase.TabStop = false;
-            this.groupBoxDataBase.Text = "数据库";
-            // 
             // DB_connector_button
             // 
             this.DB_connector_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(41)))), ((int)(((byte)(91)))));
@@ -473,15 +448,6 @@
             this.DB_connector_button.Text = "连接数据库";
             this.DB_connector_button.UseVisualStyleBackColor = false;
             this.DB_connector_button.Click += new System.EventHandler(this.DB_connector_button_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(161, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 17);
-            this.label3.TabIndex = 10;
             // 
             // DB_name_textBox
             // 
@@ -594,6 +560,40 @@
             this.DB_type_label.Text = "类型";
             this.DB_type_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(161, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 17);
+            this.label3.TabIndex = 10;
+            // 
+            // groupBoxDataBase
+            // 
+            this.groupBoxDataBase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxDataBase.Controls.Add(this.DB_connector_button);
+            this.groupBoxDataBase.Controls.Add(this.label3);
+            this.groupBoxDataBase.Controls.Add(this.DB_name_textBox);
+            this.groupBoxDataBase.Controls.Add(this.DB_name_label);
+            this.groupBoxDataBase.Controls.Add(this.DB_password_textBox);
+            this.groupBoxDataBase.Controls.Add(this.DB_password_label);
+            this.groupBoxDataBase.Controls.Add(this.DB_username_textBox);
+            this.groupBoxDataBase.Controls.Add(this.DB_username_label);
+            this.groupBoxDataBase.Controls.Add(this.DB_address_textBox);
+            this.groupBoxDataBase.Controls.Add(this.DB_address_label);
+            this.groupBoxDataBase.Controls.Add(this.DB_type_textBox);
+            this.groupBoxDataBase.Controls.Add(this.DB_type_label);
+            this.groupBoxDataBase.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBoxDataBase.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBoxDataBase.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxDataBase.Name = "groupBoxDataBase";
+            this.groupBoxDataBase.Size = new System.Drawing.Size(306, 138);
+            this.groupBoxDataBase.TabIndex = 0;
+            this.groupBoxDataBase.TabStop = false;
+            this.groupBoxDataBase.Text = "数据库";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -608,6 +608,7 @@
             this.Name = "MainForm";
             this.Text = "CodeGenerator";
             this.TitleColor = System.Drawing.Color.White;
+            this.TitleOffset = new System.Drawing.Point(30, 0);
             this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -627,8 +628,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelRight;
-        private System.Windows.Forms.GroupBox groupBoxDataBase;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox DB_name_textBox;
         private System.Windows.Forms.Label DB_name_label;
         private System.Windows.Forms.TextBox DB_password_textBox;
@@ -665,6 +664,8 @@
         private System.Windows.Forms.Button DB_connector_button;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox preview_groupBox;
+        private System.Windows.Forms.GroupBox groupBoxDataBase;
+        private System.Windows.Forms.Label label3;
     }
 }
 

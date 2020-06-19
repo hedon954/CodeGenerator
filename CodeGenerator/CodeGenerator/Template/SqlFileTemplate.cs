@@ -1,5 +1,4 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,8 +13,8 @@ namespace CodeGenerator.Template
     {
         public static string GetSqlFileTemplate(string connStr,List<string> selectItems)
         {
-            SqlConnection sqlConnection = null;
-            StringBuilder sb = null;
+            SqlConnection sqlConnection = new SqlConnection(connStr);
+            StringBuilder sb = new StringBuilder();
             string dbName = null;  //数据库名称
             try
             {

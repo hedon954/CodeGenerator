@@ -11,8 +11,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CCWin;
+using CCWin.SkinClass;
+using CodeGenerator.Generator;
 using CodeGenerator.Template;
-using DevExpress.ClipboardSource.SpreadsheetML;
 using FastColoredTextBoxNS;
 using ICSharpCode.TextEditor.Document;
 
@@ -490,16 +491,16 @@ namespace CodeGenerator
             string tablePrefix = table_prefix_textBox.Text.Trim();
             string author = author_textBox.Text.Trim();
             string ns = namespace_textBox.Text.Trim();
-
+            string dbName = DB_name_textBox.Text.Trim();
 
             //6. 生成 Model
-            GenerateModel(ns,author,outputPath,tablePrefix,connStr);
+            ModelGenerator.GenerateModel(ns,author,outputPath,tablePrefix,connStr,Right_listBox.Items);
             //7. 生成 DAL
-            GenerateDAL(ns, author, outputPath, tablePrefix, connStr);
+            DalGenerator.GenerateDAL(ns, author, outputPath, tablePrefix, connStr,Right_listBox.Items);
             //8. 生成数据库操作助手类
-            GenerateMSSQLHelper(ns, outputPath, connStr);
+            MSSQLHelperGenerator.GenerateMSSQLHelper(ns, outputPath, connStr);
             //9. 生成 数据库文档
-            GenerateSqlFile(outputPath, connStr, listRight);
+            SqlFileGenerator.GenerateSqlFile(outputPath, connStr, listRight, dbName);
 
 
             //10. 告知生成成功
@@ -509,191 +510,5 @@ namespace CodeGenerator
             //11. 打开生成后的目录
             System.Diagnostics.Process.Start(outputPath);
         }
-
-
-        #region 生成 Model 文件
-        /// <summary>
-        /// 生成 Model文件
-        /// </summary>
-        /// <param name="ns"></param>
-        /// <param name="author"></param>
-        /// <param name="outputPath"></param>
-        /// <param name="tablePrefix"></param>
-        /// <param name="connStr"></param>
-        private void GenerateModel(string ns,string author,string outputPath, string tablePrefix,string connStr )
-        {
-            string modelOutputPath = "";
-            
-            if(outputPath.LastIndexOf("\\") == 0)
-            {
-                //如果生成路径的最后一位是“\”，是在该路径下的 Model 文件夹下面建立 Model 文件
-                modelOutputPath = outputPath + "Model\\";
-            }
-            else //没有反斜杠，则要补上
-            {
-                modelOutputPath = outputPath + "\\Model\\";
-            }
-
-            //检查 Model 文件夹是否存在，不存在则创建
-            if (!Directory.Exists(modelOutputPath))
-            {
-                Directory.CreateDirectory(modelOutputPath);
-            }
-
-            string className = "";
-            //遍历要生成的表，生成 Model 
-            foreach (string tableName in Right_listBox.Items)
-            {
-                //去掉表名前缀
-                className = tableName.Replace(tablePrefix, "");
-                //将类名第一个字母大写
-                className = className.Substring(0, 1).ToUpper() + className.Substring(1);
-                //定义文件路径
-                string filePath = modelOutputPath + className + ".cs";
-                //声明文档流对象，采取覆盖模式
-                StreamWriter sw = new StreamWriter(filePath, false);
-                //生成文档
-                sw.Write(ModelTemplate.GetModelTemplate(ns, tableName, author, className, connStr));
-                //关闭文档流
-                sw.Flush();
-                sw.Close();
-                sw.Dispose();
-            }
-
-        }
-        #endregion
-
-        #region 生成 DAL 文件
-        /// <summary>
-        /// 生成 DAL 文件
-        /// </summary>
-        /// <param name="ns"></param>
-        /// <param name="author"></param>
-        /// <param name="outputPath"></param>
-        /// <param name="tablePrefix"></param>
-        /// <param name="connStr"></param>
-        private void GenerateDAL(string ns, string author, string outputPath, string tablePrefix, string connStr)
-        {
-            string dalOutputPath = "";
-
-            //检查生成路径的末尾是否为“\”
-            if (outputPath.LastIndexOf("\\") == 0)
-            {
-                //如果路径最后是“\”，则在该路径下的 DAL 文件夹下建立 DAL 文件
-                dalOutputPath = outputPath + "DAL\\";
-            }
-            else
-            {
-                //如果路径不是以“\”结尾，则需要补上
-                dalOutputPath = outputPath + "\\DAL\\";
-            }
-
-            //检查 DAL 文件夹是否存在
-            if (!Directory.Exists(dalOutputPath))
-            {
-                //不存在则创建
-                Directory.CreateDirectory(dalOutputPath);
-            }
-
-            string className = "";
-            //遍历要生成的表，生成 DAL
-            foreach (string tableName in Right_listBox.Items)
-            {
-                //去掉表名的前缀
-                className = tableName.Replace(tablePrefix, "");
-                //将类名的一个字母大写
-                className = className.Substring(0, 1).ToUpper() + className.Substring(1);
-                //定义文件路径
-                string filePath = dalOutputPath + className + ".cs";
-                //声明文档流对象，采取覆盖模式
-                StreamWriter sw = new StreamWriter(filePath, false);
-                //生成文档
-                sw.Write(DALTemplate.GetDALTemplate(ns, tableName, author, className, connStr));
-                //关闭文档流
-                sw.Flush();
-                sw.Close();
-                sw.Dispose();
-            }
-        }
-        #endregion
-
-
-        #region 生成数据库操作助手类
-        /// <summary>
-        /// 生成数据库操作助手类
-        /// </summary>
-        /// <param name="ns"></param>
-        /// <param name="author"></param>
-        /// <param name="outputPath"></param>
-        /// <param name="tablePrefix"></param>
-        /// <param name="connStr"></param>
-        private void GenerateMSSQLHelper(string ns, string outputPath, string connStr)
-        {
-            string helperOutputPath = "";
-
-            //检查生成路径的末尾是否为“\”
-            if (outputPath.LastIndexOf("\\") == 0)
-            {
-                //如果路径最后是“\”，则在该路径下的 DAL 文件夹下建立 MSSQLHelper 文件
-                helperOutputPath = outputPath + "DAL\\";
-            }
-            else
-            {
-                //如果路径不是以“\”结尾，则需要补上
-                helperOutputPath = outputPath + "\\DAL\\";
-            }
-
-            //检查 DAL 文件夹是否存在
-            if (!Directory.Exists(helperOutputPath))
-            {
-                //不存在则创建
-                Directory.CreateDirectory(helperOutputPath);
-            }
-
-            
-            //定义文件路径
-            string filePath = helperOutputPath + "MSSQLHelper.cs";
-            //声明文档流对象，采取覆盖模式
-            StreamWriter sw = new StreamWriter(filePath, false);
-            //生成文档
-            sw.Write(MSSQLHelperTemplate.GETMSSQLHelperTemplate(ns,connStr));
-            //关闭文档流
-            sw.Flush();
-            sw.Close();
-            sw.Dispose();
-        }
-        #endregion
-
-
-        #region 生成数据表结构文档
-        private void GenerateSqlFile(string outputPath, string connStr,List<string> selectedItems)
-        {
-            string sqlFileOutputPath = "";
-            //检查生成路径的末尾是否为“\”
-            if (outputPath.LastIndexOf("\\") > 0)
-            {
-                //如果不是以“\”结尾，则要补上
-                sqlFileOutputPath = outputPath + "\\";
-            }
-            //如果是以“\”结尾，则直接在改路径下生成数据库表文档
-            string filePath = sqlFileOutputPath + DB_name_textBox.Text.Trim() + "数据库表结构文档.html";
-            //声明文档流对象，采取覆盖模式
-            StreamWriter sw = new StreamWriter(filePath, false);
-            //生成文档
-            sw.Write(SqlFileTemplate.GetSqlFileTemplate(connStr, selectedItems));
-            //关闭文档流
-            sw.Flush();
-            sw.Close();
-            sw.Dispose();
-        }
-
-
-
-
-
-
-        #endregion
-
-        
     }
 }

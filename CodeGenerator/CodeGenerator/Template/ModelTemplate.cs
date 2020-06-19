@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors.Filtering.Templates;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -52,7 +51,7 @@ namespace CodeGenerator.Template
             /*
              * 连接数据库，查询每个表中的每一项，遍历建立类中的属性
              */
-            SqlConnection sqlConnection = null;
+            SqlConnection sqlConnection = new SqlConnection(connStr);
             try
             {
                 sqlConnection = new SqlConnection(connStr);
