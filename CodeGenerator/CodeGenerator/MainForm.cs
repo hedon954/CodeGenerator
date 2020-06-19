@@ -84,8 +84,6 @@ namespace CodeGenerator
             {
                 sqlConnection.Close();    //关闭数据库
             }
-
-
         }
 
         /// <summary>
@@ -310,8 +308,6 @@ namespace CodeGenerator
         }
 
         
-
-
         /// <summary>
         /// 预览 Model
         /// </summary>
@@ -361,18 +357,62 @@ namespace CodeGenerator
                 MessageBox.Show("请选择要生成的表！");
                 return;
             }
-
             //2. 预览
-            showDALPreview();
-
+            if (Right_listBox.SelectedItems.Count <= 0)
+            {
+                //如果没有选中的，则默认预览第一个
+                showDALPreview(Right_listBox.Items[0].ToString());
+            }
+            else
+            {
+                //如果有多个选中的，则默认预览选中中的第一个
+                showDALPreview(Right_listBox.SelectedItems[0].ToString());
+            }
         }
 
         /// <summary>
         /// 预览DAL
         /// </summary>
-        private void showDALPreview()
+        private void showDALPreview(string tableName)
         {
-            throw new NotImplementedException();
+            //2. 获取表名
+            //tableName = Right_listBox.Items[0].ToString();
+
+            //3. 获取“其他项”里面的信息
+
+            //3.1 获取命名空间
+            string ns = namespace_textBox.Text.Trim();  //命名空间
+            //3.1.1 判断“命名空间是否不为空”
+            if (string.IsNullOrEmpty(ns))
+            {
+                MessageBox.Show("请输入命名空间！");
+                return;
+            }
+
+            //3.2 获取表前缀
+            string tablePrefix = table_prefix_textBox.Text.Trim();
+            //3.2.1 去掉前缀
+            string className = tableName.Replace(tablePrefix, "");
+            //3.2.2 将类名第一个字母进行大写
+            className = className.Substring(0, 1).ToUpper() + className.Substring(1);
+
+            //3.3 获取作者信息
+            string author = author_textBox.Text.Trim();
+            //4. 获取连接字符串
+            string connStr = getConnstr();
+            //5. 获取 Model 模板代码
+            preview_textEditorControl.Text =DALTemplate.GetDALTemplate(ns, tableName, author, className, connStr);
         }
+
+        /// <summary>
+        /// 点击“批量生成按钮” =》 批量生成 Model、DAL、数据库结构表
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void generate_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

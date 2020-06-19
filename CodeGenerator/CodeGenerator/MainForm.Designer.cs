@@ -133,6 +133,7 @@
             this.generate_button.TabIndex = 6;
             this.generate_button.Text = "批量生成";
             this.generate_button.UseVisualStyleBackColor = true;
+            this.generate_button.Click += new System.EventHandler(this.generate_button_Click);
             // 
             // preview_textEditorControl
             // 

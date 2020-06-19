@@ -24,7 +24,7 @@ namespace CodeGenerator.Template
         /// <param name="className">类名</param>
         /// <param name="connStr">数据库连接字符串</param>
         /// <returns>DAL 模板代码</returns>
-        public static string getDALTemplate(string ns, string tableName, string author, string className, string connStr)
+        public static string GetDALTemplate(string ns, string tableName, string author, string className, string connStr)
         {
             #region 生成 DAL 模板代码
 
@@ -74,6 +74,7 @@ namespace CodeGenerator.Template
 
             StringBuilder sb = new StringBuilder();
 
+            #region 读取属性名与属性值
             //定义两个临时字符串
             string fieldNames = "";   //存放字段名序列
             string fieldValues = "";  //存放每个字段的值
@@ -89,19 +90,21 @@ namespace CodeGenerator.Template
                 if (i == dataTable.Rows.Count - 1)
                 {
                     fieldNames += "["+dataRow["字段名"].ToString()+"] ";
-                    fieldValues += "@" + dataRow["字段的"].ToString()+" ";   //最后一个值后面不需要逗号
+                    fieldValues += "@" + dataRow["字段名"].ToString()+" ";   //最后一个值后面不需要逗号
                 }
                 else
                 {
                     fieldNames += "[" + dataRow["字段名"].ToString() + "], ";
-                    fieldValues += "@" + dataRow["字段的"].ToString() + ", ";
+                    fieldValues += "@" + dataRow["字段名"].ToString() + ", ";
                 }
             }
-            
+            #endregion
+
 
             /*
              * 基础部分
              */
+            #region 基础部分
             sb.Append("using System;\n\r");
             sb.Append("using System.Collections.Generic;\n\r");
             sb.Append("using System.Linq;\n\r");
@@ -118,12 +121,12 @@ namespace CodeGenerator.Template
             sb.Append("        {\n\r");
             sb.Append("            public "+className+"DAL()\n\r");
             sb.Append("            { }\n\r\r\n");
+            #endregion
 
-
-            #region 增加部分
             /*
              * 增
              */
+            #region 增加部分
             sb.Append("            /// <summary>\n\r");
             sb.Append("            /// 增加一条数据\n\r");
             sb.Append("            /// </summary>\n\r");
@@ -184,11 +187,10 @@ namespace CodeGenerator.Template
 
             #endregion
 
-
-            #region 修改部分
             /*
              * 改
              */
+            #region 修改部分
             //定义一个临时字符串，用来存放字段及其值
             string fieldsList = "";
             for (int i = 0; i < dataTable.Rows.Count; i++)
@@ -239,11 +241,10 @@ namespace CodeGenerator.Template
             sb.Append("            }\r\n\r\n");
             #endregion
 
-
-            #region 删除部分
             /*
              * 删
              */
+            #region 删除部分
             sb.Append("            /// <summary>\r\n");
             sb.Append("            /// 删除一条数据\r\n");
             sb.Append("            /// </summary>\r\n");
@@ -375,7 +376,6 @@ namespace CodeGenerator.Template
             sb.Append("            }\r\n\r\n");
             #endregion
 
-
             #region 分页查询
             sb.Append("            /// <summary>\r\n");
             sb.Append("            /// 分页获取数据列表\r\n");
@@ -454,7 +454,9 @@ namespace CodeGenerator.Template
             sb.Append("            }\r\n");
             #endregion
 
-
+            /*
+             * 其他
+             */
             #region 给实体对象绑定数据
             sb.Append("            /// <summary>\r\n");
             sb.Append("            /// 对象实体绑定数据\r\n");
@@ -489,10 +491,10 @@ namespace CodeGenerator.Template
 
             #region 获取满足条件的元组个数
             sb.Append("            /// <summary>\r\n");
-            sb.Append("            /// 计算记录数\r\n");
+            sb.Append("            /// 获取满足条件的元组个数\r\n");
             sb.Append("            /// </summary>\r\n");
             sb.Append("            /// <param name=\"cond\"></param>\r\n");
-            sb.Append("            /// <returns>返回个数</returns>\r\n");
+            sb.Append("            /// <returns>返回获取满足条件的元组个数</returns>\r\n");
             sb.Append("            public int CalcCount(string cond)\r\n");
             sb.Append("            {\r\n");
             sb.Append("                string sql = \"select count(1) from ["+tableName+"]\";\r\n");
@@ -506,14 +508,13 @@ namespace CodeGenerator.Template
             sb.Append("            }\r\n\r\n");
             #endregion
 
-
             /*
              * 结尾
              */
+            #region 结尾
             sb.Append("        }\r\n");
             sb.Append("    }\r\n\r\n");
-
-
+            #endregion
 
             return sb.ToString();
             #endregion
